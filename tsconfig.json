@@ -18,14 +18,12 @@
     "jsx": "preserve",
     "incremental": true,
 
-    "ignoreDeprecations": "6.0", 
     
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"
