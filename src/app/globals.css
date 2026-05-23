@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    /* Matches the dark background canvas of FinTrackr (#0c0d12) */
+    @apply bg-[#0c0d12] text-slate-100 antialiased selection:bg-emerald-500/20;
+  }
+
+  /* Premium scrollbars for a clean dark dashboard channel look */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0c0d12;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1f2330;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2d3346;
+  }
+
+  /* Inverts the calendar icon so it's readable on a dark background */
+  input[type='date']::-webkit-calendar-picker-indicator {
+    filter: invert(1) sepia(20%) saturate(1000%) hue-rotate(110deg);
+    opacity: 0.6;
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  /* Integrated Dark Inputs */
+  .input {
+    @apply w-full px-3 py-2 text-sm border border-slate-800/80 rounded-xl bg-[#07080d]
+      text-slate-200 focus:outline-none focus:ring-1 focus:ring-emerald-500/50
+      focus:border-emerald-500 placeholder:text-slate-600 transition-all;
+  }
+
+  /* Default Button: Styled like your secondary sidebar action nodes */
+  .btn {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 text-sm
+      border border-slate-800 rounded-xl cursor-pointer bg-[#11131c]
+      text-slate-300 hover:bg-[#161a26] hover:text-white transition-colors
+      disabled:opacity-40 disabled:cursor-not-allowed font-medium;
+  }
+
+  /* Primary Button: Uses the emerald-to-teal signature accent gradient */
+  .btn-primary {
+    @apply bg-gradient-to-br from-emerald-500 to-teal-600 text-white border-emerald-500/20 
+      hover:opacity-95 shadow-lg shadow-emerald-500/5 active:scale-[0.98] focus:ring-2 focus:ring-emerald-500/20;
+  }
+
+  /* Danger Button: Clean dark-mode destructive style */
+  .btn-danger {
+    @apply text-rose-400 border-rose-950/40 bg-rose-950/10 hover:bg-rose-950/30 hover:text-rose-300;
+  }
+
+  /* Dashboard Cards: Blends with the background canvas */
+  .card {
+    @apply bg-[#10121a]/60 border border-[#1e2230] rounded-xl p-4 shadow-sm;
+  }
+
+  /* Badges: Uses the sidebar active marker aesthetic */
+  .badge {
+    @apply text-xs px-2 py-0.5 rounded font-bold tracking-wide bg-emerald-500/10 text-emerald-400 border border-emerald-500/20;
+  }
+}
