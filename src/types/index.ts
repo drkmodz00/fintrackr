@@ -1,3 +1,11 @@
+export interface Profile {
+  id: string
+  full_name?: string
+  email?: string
+  avatar_url?: string
+  created_at?: string
+}
+
 export type Category = {
   id: string
   name: string
